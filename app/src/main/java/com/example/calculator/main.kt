@@ -10,20 +10,20 @@ fun main() {
     println("두번째 숫자를 입력해주세요.")
     val num2 = readLine()!!.toDouble()
 
-    val selectedOperator = when {
-        AddOperator().matches(operator) -> AddOperator()
-        SubtractOperator().matches(operator) -> SubtractOperator()
-        MultiplyOperator().matches(operator) -> MultiplyOperator()
-        DivideOperator().matches(operator) -> DivideOperator()
+    val selectedOperator = when (operator) {
+        "+" -> AddOperator()
+        "-" -> SubtractOperator()
+        "*" -> MultiplyOperator()
+        "/" -> DivideOperator()
         else -> { println("잘못된 연산자입니다.")
             return
         }
     }
-    val result = selectedOperator.calculate(num1, num2)
+
+    val calculate = Calc()
+    val result = calculate.operation(selectedOperator, num1, num2)
     println("${num1} ${operator} ${num2}의 결과는: ${result}")
 }
-
-
 
 
 
